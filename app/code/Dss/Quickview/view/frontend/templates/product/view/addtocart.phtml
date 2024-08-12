@@ -1,0 +1,76 @@
+<?php
+/**
+ * Digit Software Solutions.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+ * @category  Dss
+ * @package   Dss_Quickview
+ * @author    Extension Team
+ * @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+ */
+?>
+<?php
+/**
+ * @var \Dss\Quickview\Block\Product\View $block
+ */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()): ?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()): ?>
+                <div class="field qty">
+                    <label class="label" for="qty"><span><?= /* @noEscape */ __('Qty') ?></span></label>
+                    <div class="control">
+                        <input
+                            type="number"
+                            name="qty"
+                            id="qty"
+                            maxlength="12"
+                            value="<?= /* @noEscape */ $block->getProductDefaultQty() * 1 ?>"
+                            title="<?= /* @noEscape */ __('Qty') ?>" class="input-text qty"
+                            data-validate="<?= /* @noEscape */
+                                $escaper->escapeHtml($block->jsonEncoderQuantityValidators()) ?>"
+
+                        />
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="actions">
+                <button
+                    type="submit"
+                    title="<?= /* @noEscape */ $buttonTitle ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button">
+                    <span><?= /* @noEscape */ $buttonTitle ?></span>
+                </button>
+                <?= /* @noEscape */ $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<?php if ($block->isRedirectToCartEnabled()): ?>
+    <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "dss_quickview/catalog_product": {
+                    "radioCheckboxClosest": ".nested"
+                }
+            }
+        }
+    </script>
+<?php else: ?>
+    <script type="text/x-magento-init">
+    {
+        ".actions": {
+            "Dss_Quickview/js/dss_tocart": {
+            }
+        }
+    }
+    </script>
+<?php endif; ?>
