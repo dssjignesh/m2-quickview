@@ -1,0 +1,51 @@
+<?php
+/**
+ * Digit Software Solutions.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+ * @category  Dss
+ * @package   Dss_Quickview
+ * @author    Extension Team
+ * @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+ */
+?>
+<?php
+/**
+ * @var \Dss\Quickview\Block\Initialize $block
+ */
+?>
+<?php
+$helper = $block->getHelper();
+$btnTextColor = $helper->getBtnTextColor();
+$baseUrl = $helper->getBaseUrl();
+$buttonText = $helper->getButtonText();
+$btnBackground = $helper->getBtnBackground();
+list($r, $g, $b) = sscanf($btnBackground, "%02x%02x%02x");
+$productUrl = $helper->getUrl();
+$buttonText = $helper->getButtonText();
+$isEnabled = $helper->enabled();
+$productItemInfo = $helper->getProductItemInfo();
+$productImageWrapper = $helper->getProductImageWrapper();
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Dss_Quickview/js/dss_config": {
+                "productUrl": "<?= /* @noEscape */ $productUrl; ?>",
+                "buttonText": "<?= /* @noEscape */ $buttonText; ?>",
+                "isEnabled": "<?= /* @noEscape */ $isEnabled; ?>",
+                "baseUrl": "<?= /* @noEscape */ $baseUrl; ?>",
+                "productItemInfo": "<?= /* @noEscape */ $productItemInfo; ?>",
+                "productImageWrapper": "<?= /* @noEscape */ $productImageWrapper; ?>"
+            },
+            "Dss_Quickview/js/css-script": {
+                "btnTextColor": "#<?= /* @noEscape */  $btnTextColor; ?>",
+                "rgba": "<?= /* @noEscape */  "$r , $g , $b"; ?>"
+            }
+        }
+    }
+</script>

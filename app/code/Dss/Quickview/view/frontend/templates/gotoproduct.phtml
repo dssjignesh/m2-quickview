@@ -1,0 +1,27 @@
+<?php
+/**
+ * Digit Software Solutions.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+ * @category  Dss
+ * @package   Dss_Quickview
+ * @author    Extension Team
+ * @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+ */
+?>
+<?php
+/**
+ * @var Magento\Catalog\Block\Product\View\Type\Simple $block
+ */
+?>
+<?php $product = $block->getProduct();
+?>
+<div id="ajax-goto">
+    <a class="goto-product" href="<?= /* @noEscape */ $product->getUrlModel()->getUrl($product); ?>">
+        <span><?= $escaper->escapeHtml(__('Go to Product')) ?></span>
+    </a>
+</div>
