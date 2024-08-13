@@ -22,5 +22,5 @@ use Magento\Framework\View\Result\PageFactory;
 
 class View extends \Magento\Catalog\Controller\Product\View
 {
-
+    //Controller for QuickView required
 }

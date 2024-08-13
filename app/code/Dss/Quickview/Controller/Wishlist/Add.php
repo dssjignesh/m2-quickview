@@ -27,11 +27,11 @@ use Magento\Wishlist\Controller\WishlistProviderInterface;
 use Magento\Wishlist\Controller\AbstractIndex;
 use Magento\Customer\Model\Session;
 use Magento\Wishlist\Helper\Data;
+use Magento\Framework\Controller\Result\Redirect;
 
 /**
  * Wish list Add controller
  *
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class Add extends AbstractIndex
 {
@@ -60,7 +60,7 @@ class Add extends AbstractIndex
      * @return \Magento\Framework\Controller\Result\Redirect
      * @throws NotFoundException
      */
-    public function execute()
+    public function execute(): Redirect
     {
         /** @var \Magento\Framework\Controller\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);

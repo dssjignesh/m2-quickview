@@ -20,9 +20,10 @@
 ?>
 <?php $_product = $block->getProduct() ?>
 <?php if ($block->getConfigShowEmail()): ?>
-    <?php $helper = $block->getHelper(); ?>
-    <a href="<?= $escaper->escapeUrl($block->getEmailToFriendUrl($_product)) ?>"
-       class="action mailto friend"><span><?= $escaper->escapeHtml(__('Email')) ?></span></a>
+    <?php $blockObj = $block->getLayout()->createBlock(\Dss\Quickview\Block\Product\EmailToFriend::class); ?>
+    <?php $emailUrl = $blockObj->getEmailToFriendUrl($_product); ?>
+    <a href="<?= $escaper->escapeUrl($emailUrl) ?>"
+        class="action mailto friend"><span><?= $escaper->escapeHtml(__('Email')) ?></span></a>
 <?php endif; ?>
 <script type="text/x-magento-init">
     {

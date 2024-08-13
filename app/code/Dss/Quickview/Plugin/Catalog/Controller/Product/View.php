@@ -43,9 +43,8 @@ class View
      * @param \Magento\Catalog\Model\Product|mixed $product
      * @param string $paramRedirect
      * @return string
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function afterGetUrlRedirect($subject, $result, $product, $paramRedirect)
+    public function afterGetUrlRedirect($subject, $result, $product, $paramRedirect): string
     {
         $params = $this->context->getRequest();
         if ($params->getControllerModule() === 'Dss_Quickview') {

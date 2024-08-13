@@ -1,11 +1,20 @@
 <?php
 
-declare(strict_types= 1);
+declare(strict_types=1);
 
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
+* Digit Software Solutions.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+*
+* @category  Dss
+* @package   Dss_Quickview
+* @author    Extension Team
+* @copyright Copyright (c) 2024 Digit Software Solutions. ( https://digitsoftsol.com )
+*/
 
 namespace Dss\Quickview\Block\Product;
 
@@ -20,8 +29,10 @@ class Social extends \Magento\Catalog\Block\Product\View
 
     /**
      * Get Config for show Email
+     *
+     * @return mixed
      */
-    public function getConfigShowEmail()
+    public function getConfigShowEmail(): mixed
     {
         return $this->_scopeConfig->getValue(
             self::XML_PATH_QUICKVIEW_REMOVE_PRODUCT_INFOR_MAILTO,

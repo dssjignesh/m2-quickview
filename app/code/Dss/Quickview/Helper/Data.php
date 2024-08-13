@@ -127,7 +127,7 @@ class Data extends AbstractHelper
      *
      * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
     {
         $productUrl = $this->urlInterface->getUrl('dss_quickview/catalog_product/view/');
         return $productUrl;
@@ -138,7 +138,7 @@ class Data extends AbstractHelper
      *
      * @return string
      */
-    public function getBaseUrl()
+    public function getBaseUrl(): string
     {
         $baseUrl = $this->urlInterface->getUrl();
         return $baseUrl;
@@ -149,7 +149,7 @@ class Data extends AbstractHelper
      *
      * @return string
      */
-    public function getRemoveReview()
+    public function getRemoveReview(): string
     {
         $data = $this->scopeConfig->getValue(
             'dss_quickview/general/remove_reviews',
@@ -163,7 +163,7 @@ class Data extends AbstractHelper
      *
      * @return string
      */
-    public function getRemoveMoreInfo()
+    public function getRemoveMoreInfo(): string
     {
         $data = $this->scopeConfig->getValue(
             'dss_quickview/general/remove_product_tab',
@@ -177,7 +177,7 @@ class Data extends AbstractHelper
      *
      * @return string
      */
-    public function getSkuTemplate()
+    public function getSkuTemplate(): string
     {
         $this->quickviewOptions = $this->scopeConfig->getValue(
             'dss_quickview',
@@ -196,7 +196,7 @@ class Data extends AbstractHelper
      *
      * @return string
      */
-    public function getCustomCSS()
+    public function getCustomCSS(): string
     {
         $this->quickviewOptions = $this->scopeConfig->getValue(
             'dss_quickview',
@@ -208,9 +208,9 @@ class Data extends AbstractHelper
     /**
      * Get close seconds
      *
-     * @return int
+     * @return string
      */
-    public function getCloseSeconds()
+    public function getCloseSeconds(): string
     {
         $this->quickviewOptions = $this->scopeConfig->getValue(
             'dss_quickview',

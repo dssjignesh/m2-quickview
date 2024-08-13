@@ -79,7 +79,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return array
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getWishlistOptions()
+    public function getWishlistOptions(): array
     {
         return ['productType' => $this->getProduct()->getTypeId()];
     }
@@ -90,7 +90,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return Product
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getProduct()
+    public function getProduct(): Product
     {
         if (!$this->_coreRegistry->registry('product') && $this->getProductId()) {
             $product = $this->productRepository->getById($this->getProductId());
@@ -104,7 +104,7 @@ class View extends AbstractProduct implements IdentityInterface
      *
      * @return bool
      */
-    public function canEmailToFriend()
+    public function canEmailToFriend(): bool
     {
         return false;
     }
@@ -116,7 +116,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @param array $additional
      * @return string
      */
-    public function getAddToCartUrl($product, $additional = [])
+    public function getAddToCartUrl($product, $additional = []): string
     {
         if ($this->hasCustomAddToCartUrl()) {
             return $this->getCustomAddToCartUrl();
@@ -139,7 +139,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getJsonConfig()
+    public function getJsonConfig(): string
     {
         /* @var $product Product */
         $product = $this->getProduct();
@@ -196,7 +196,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return bool
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function hasOptions()
+    public function hasOptions(): bool
     {
         if ($this->getProduct()->getTypeInstance()->hasOptions($this->getProduct())) {
             return true;
@@ -210,7 +210,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return bool
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function hasRequiredOptions()
+    public function hasRequiredOptions(): bool
     {
         return $this->getProduct()->getTypeInstance()->hasRequiredOptions($this->getProduct());
     }
@@ -224,7 +224,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return bool
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function isStartCustomization()
+    public function isStartCustomization(): bool
     {
         return $this->getProduct()->getConfigureMode() || $this->_request->getParam('startcustomization');
     }
@@ -238,7 +238,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return int|float
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getProductDefaultQty($product = null)
+    public function getProductDefaultQty($product = null): int|float
     {
         if (!$product) {
             $product = $this->getProduct();
@@ -260,7 +260,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getOptionsContainer()
+    public function getOptionsContainer(): string
     {
         return $this->getProduct()->getOptionsContainer() == 'container1' ? 'container1' : 'container2';
     }
@@ -271,7 +271,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return bool
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function shouldRenderQuantity()
+    public function shouldRenderQuantity(): bool
     {
         return !$this->productTypeConfig->isProductSet($this->getProduct()->getTypeId());
     }
@@ -281,7 +281,7 @@ class View extends AbstractProduct implements IdentityInterface
      *
      * @return array
      */
-    public function getQuantityValidators()
+    public function getQuantityValidators(): array
     {
         $validators = [];
         $validators['required-number'] = true;
@@ -294,7 +294,7 @@ class View extends AbstractProduct implements IdentityInterface
      * @return array
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getIdentities()
+    public function getIdentities(): array
     {
         $identities = $this->getProduct()->getIdentities();
 
@@ -306,7 +306,7 @@ class View extends AbstractProduct implements IdentityInterface
      *
      * @return int
      */
-    protected function getCustomerId()
+    protected function getCustomerId(): int
     {
         return $this->customerSession->getCustomerId();
     }
@@ -316,7 +316,7 @@ class View extends AbstractProduct implements IdentityInterface
      *
      * @return string
      */
-    public function jsonEncoderQuantityValidators()
+    public function jsonEncoderQuantityValidators(): string
     {
         return $this->jsonEncoder->encode($this->getQuantityValidators());
     }

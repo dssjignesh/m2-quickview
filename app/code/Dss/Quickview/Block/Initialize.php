@@ -46,7 +46,7 @@ class Initialize extends \Magento\Framework\View\Element\Template
      * @return array
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getConfig()
+    public function getConfig(): array
     {
         return [
             'baseUrl' => $this->getBaseUrl()
@@ -58,7 +58,7 @@ class Initialize extends \Magento\Framework\View\Element\Template
      *
      * @return \Dss\QuickView\Helper\Data
      */
-    public function getHelper()
+    public function getHelper(): Data
     {
         return $this->helper;
     }
@@ -66,11 +66,10 @@ class Initialize extends \Magento\Framework\View\Element\Template
     /**
      * Return base url.
      *
-     * @codeCoverageIgnore
      * @return string
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getBaseUrl()
+    public function getBaseUrl(): string
     {
         try {
             return $this->_storeManager->getStore()->getBaseUrl();

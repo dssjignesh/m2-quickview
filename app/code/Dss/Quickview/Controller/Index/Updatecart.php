@@ -17,12 +17,15 @@ declare(strict_types= 1);
 */
 namespace Dss\Quickview\Controller\Index;
 
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Controller\ResultInterface;
+
 class Updatecart extends \Magento\Framework\App\Action\Action
 {
     /**
      * Update cart
      *
-     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|void
+     * @return ResponseInterface|ResultInterface|void
      */
     public function execute()
     {
