@@ -19,7 +19,7 @@ declare(strict_types= 1);
 namespace Dss\Quickview\Block;
 
 use Exception;
-use Dss\QuickView\Helper\Data;
+use Dss\Quickview\Helper\Data;
 use Magento\Framework\View\Element\Template\Context;
 
 /**
